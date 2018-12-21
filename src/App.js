@@ -14,11 +14,6 @@ class App extends Component {
     };
   }
 
-  delay = e => {
-    // debugger
-    // fetchFromAPI;
-  }
-
   sortItems = (items) => {
    var itemsCopy = []
    if(items !== undefined){
@@ -33,7 +28,6 @@ class App extends Component {
   }
 
   fetchFromAPI = debounce((text) => {
-   // debugger;
    this.setState({ text });
    let filter =  text.toLowerCase();
    if(filter === ''){
