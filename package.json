@@ -9,9 +9,9 @@
     "react-scripts": "2.1.1"
   },
   "scripts": {
+    "test": "react-scripts test",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -24,6 +24,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "babel-preset-stage-0": "^6.24.1"
+    "babel-preset-stage-0": "^6.24.1",
+    "jest": "^23.6.0"
   }
 }

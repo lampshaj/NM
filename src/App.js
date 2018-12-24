@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import wars from './wars.svg';
 import star from './star.svg';
 import './App.css';
 import debounce from 'lodash/debounce'
+import {sortItems} from './helpers';
 
 class App extends Component {
   constructor(props) {
@@ -12,19 +12,6 @@ class App extends Component {
       error: null,
       items: []
     };
-  }
-
-  sortItems = (items) => {
-   var itemsCopy = []
-   if(items !== undefined){
-     var i;
-     for(i = 0; i < items.length; i++){
-       itemsCopy[i]  = items[i].name;
-     }
-     return itemsCopy.sort();
-   }else{
-     return;
-   }
   }
 
   fetchFromAPI = debounce((text) => {
@@ -47,7 +34,7 @@ class App extends Component {
    }, 350)
 
   render() {
-    let title = (
+    const title = (
        <div class="images">
          <img src={star} alt="Star" class="star"/>
          <br/>
@@ -57,8 +44,8 @@ class App extends Component {
     );
 
     let list = this.state.items.results;
-    list = this.sortItems(list);
-    var {error, isLoaded, items} = this.state;
+    list = sortItems(list);
+    let {error, items} = this.state;
     if(error){
       return <div>Error: {error.message}</div>;
     }else{
